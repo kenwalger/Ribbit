@@ -15,9 +15,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.parse.FindCallback;
 import com.parse.ParseAnalytics;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.io.File;
@@ -26,6 +31,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 
@@ -43,6 +49,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
     public static final int FILE_SIZE_LIMIT = 1024*1024*10; // 10MB
     
     protected Uri mMediaUri;
+
     
     protected DialogInterface.OnClickListener mDialogListener = 
             new DialogInterface.OnClickListener() {
@@ -212,6 +219,8 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
         }
     }
 
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -259,6 +268,16 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
     
             Intent recipientsIntent = new Intent(this, RecipientsActivity.class);
             recipientsIntent.setData(mMediaUri);
+            
+            String fileType;
+            if (requestCode == PICK_PHOTO_REQUEST || requestCode == TAKE_PHOTO_REQUEST) {
+                fileType = ParseConstants.TYPE_IMAGE;
+            }
+            else {
+                fileType = ParseConstants.TYPE_VIDEO;
+            }
+            
+            recipientsIntent.putExtra(ParseConstants.KEY_FILE_TYPE, fileType);
             startActivity(recipientsIntent);
         }
         else if (resultCode != RESULT_CANCELED) {
