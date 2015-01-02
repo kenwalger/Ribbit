@@ -3,14 +3,18 @@ package com.zyzzyxtech.ribbit;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class ViewImageActivity extends Activity {
+    
+    private static final int TIMER_DELAY = 10*1000; // 10 seconds * 1000 milliseconds
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +28,15 @@ public class ViewImageActivity extends Activity {
         Uri imageUri = getIntent().getData();
         
         Picasso.with(this).load(imageUri.toString()).into(imageView);
+        
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                finish();
+                
+            }
+        }, TIMER_DELAY);
     }
 
     /**
