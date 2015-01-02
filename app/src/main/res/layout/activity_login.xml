@@ -2,11 +2,18 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/activity_vertical_margin"
-                android:paddingBottom="@dimen/activity_vertical_margin"
-                tools:context="com.zyzzyxtech.ribbit.LoginActivity">
+                tools:context="com.zyzzyxtech.ribbit.LoginActivity"
+                android:background="@drawable/background_fill" >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/backgroundImage"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:scaleType="fitStart"
+        android:background="@drawable/background"
+        android:contentDescription="@string/content_desc_background"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -51,4 +58,6 @@
         android:layout_below="@+id/loginButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="75dp"/>
+
+
 </RelativeLayout>
