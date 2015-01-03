@@ -1,4 +1,4 @@
-package com.zyzzyxtech.ribbit;
+package com.zyzzyxtech.ribbit.ui;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -19,6 +19,9 @@ import android.widget.Toast;
 
 import com.parse.ParseAnalytics;
 import com.parse.ParseUser;
+import com.zyzzyxtech.ribbit.utils.ParseConstants;
+import com.zyzzyxtech.ribbit.R;
+import com.zyzzyxtech.ribbit.adapters.SectionsPagerAdapter;
 
 import java.io.File;
 import java.io.FileNotFoundException;

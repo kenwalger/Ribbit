@@ -1,4 +1,4 @@
-package com.zyzzyxtech.ribbit;
+package com.zyzzyxtech.ribbit.ui;
 
 import android.app.AlertDialog;
 import android.app.ListFragment;
@@ -14,6 +14,8 @@ import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
+import com.zyzzyxtech.ribbit.utils.ParseConstants;
+import com.zyzzyxtech.ribbit.R;
 
 import java.util.List;
 

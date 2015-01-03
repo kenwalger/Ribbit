@@ -1,4 +1,4 @@
-package com.zyzzyxtech.ribbit;
+package com.zyzzyxtech.ribbit.ui;
 
 import android.app.Activity;
 import android.net.Uri;
@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
+import com.zyzzyxtech.ribbit.R;
 
 import java.util.Timer;
 import java.util.TimerTask;

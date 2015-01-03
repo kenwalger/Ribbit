@@ -1,4 +1,4 @@
-package com.zyzzyxtech.ribbit;
+package com.zyzzyxtech.ribbit.utils;
 
 /**
  * Created by Ken on 12/27/2014.

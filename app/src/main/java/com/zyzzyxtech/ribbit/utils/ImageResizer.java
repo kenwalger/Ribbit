@@ -1,4 +1,4 @@
-package com.zyzzyxtech.ribbit;
+package com.zyzzyxtech.ribbit.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

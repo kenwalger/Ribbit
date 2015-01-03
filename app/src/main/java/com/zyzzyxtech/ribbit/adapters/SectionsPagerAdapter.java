@@ -1,4 +1,4 @@
-package com.zyzzyxtech.ribbit;
+package com.zyzzyxtech.ribbit.adapters;
 /**
  * Created by Ken on 12/27/2014.
  */
@@ -8,6 +8,10 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.support.v13.app.FragmentPagerAdapter;
+
+import com.zyzzyxtech.ribbit.R;
+import com.zyzzyxtech.ribbit.ui.FriendsFragment;
+import com.zyzzyxtech.ribbit.ui.InboxFragment;
 
 import java.util.Locale;
 
