@@ -1,21 +1,15 @@
 package com.zyzzyxtech.ribbit;
 
-import java.util.List;
-
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
-//import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-//import android.support.v7.app.ActionBar;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -23,6 +17,11 @@ import com.parse.ParseQuery;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
+
+import java.util.List;
+
+//import android.support.v7.app.ActionBarActivity;
+//import android.support.v7.app.ActionBar;
 
 
 public class EditFriendsActivity extends ListActivity {

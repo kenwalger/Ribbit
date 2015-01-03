@@ -3,7 +3,6 @@ package com.zyzzyxtech.ribbit;
 import android.app.Application;
 
 import com.parse.Parse;
-import com.parse.ParseObject;
 
 /**
  * Created by Ken on 12/26/2014.
