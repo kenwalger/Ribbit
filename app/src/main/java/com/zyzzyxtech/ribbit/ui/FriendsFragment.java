@@ -17,6 +17,7 @@ import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
+import com.zyzzyxtech.ribbit.adapters.UserAdapter;
 import com.zyzzyxtech.ribbit.utils.ParseConstants;
 import com.zyzzyxtech.ribbit.R;
 
@@ -71,10 +72,14 @@ public class FriendsFragment extends Fragment {
                         usernames[i] = user.getUsername();
                         i++;
                     }
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-                            android.R.layout.simple_list_item_1,
-                            usernames);
-                    mGridView.setAdapter(adapter);
+                    
+                    if (mGridView.getAdapter() == null) {
+                        UserAdapter adapter = new UserAdapter(getActivity(), mFriends);
+                        mGridView.setAdapter(adapter);
+                    }
+                    else {
+                        ((UserAdapter)mGridView.getAdapter()).refill(mFriends);
+                    }
                 } else {
                     Log.e(TAG, e.getMessage());
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());

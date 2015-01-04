@@ -4,10 +4,13 @@ package com.zyzzyxtech.ribbit.adapters;
  */
 
 
-import android.app.Fragment;
-import android.app.FragmentManager;
+//import android.app.Fragment;
+//import android.app.FragmentManager;
 import android.content.Context;
-import android.support.v13.app.FragmentPagerAdapter;
+//import android.support.v13.app.FragmentPagerAdapter;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 
 import com.zyzzyxtech.ribbit.R;
 import com.zyzzyxtech.ribbit.ui.FriendsFragment;
@@ -16,7 +19,7 @@ import com.zyzzyxtech.ribbit.ui.InboxFragment;
 import java.util.Locale;
 
 /**
- * A {@link android.support.v4.app.FragmentPagerAdapter} that returns a fragment corresponding to
+ * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
  * one of the sections/tabs/pages.
  */
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
