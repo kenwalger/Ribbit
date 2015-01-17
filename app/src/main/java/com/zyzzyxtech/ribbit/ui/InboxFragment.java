@@ -6,15 +6,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
-//import android.support.v4.widget.SwipeRefreshLayout;
-//import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListner;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.parse.FindCallback;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
@@ -26,6 +23,9 @@ import com.zyzzyxtech.ribbit.utils.ParseConstants;
 
 import java.util.ArrayList;
 import java.util.List;
+
+//import android.support.v4.widget.SwipeRefreshLayout;
+//import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListner;
 
 
 
@@ -49,7 +49,7 @@ public class InboxFragment extends ListFragment {
 //                R.color.swipeRefresh2,
 //                R.color.swipeRefresh3,
 //                R.color.swipeRefresh4);
-        
+
         return rootView;
     }
 
@@ -70,7 +70,7 @@ public class InboxFragment extends ListFragment {
             @Override
             public void done(List<ParseObject> messages, ParseException e) {
                 getActivity().setProgressBarIndeterminateVisibility(false);
-                
+
 //                if (mSwipeRefreshLayout.isRefreshing()) {
 //                    mSwipeRefreshLayout.setRefreshing(false);
 //                }
@@ -103,14 +103,14 @@ public class InboxFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        
+
         ParseObject message = mMessages.get(position);
         String messageType = message.getString(ParseConstants.KEY_FILE_TYPE);
         String senderName = message.getString(ParseConstants.KEY_SENDER_NAME);
         String displayMessage = message.getString(ParseConstants.KEY_MESSAGE);
         ParseFile file = message.getParseFile(ParseConstants.KEY_FILE);
         Uri fileUri = Uri.parse(file.getUrl());
-        
+
         if (messageType.equals(ParseConstants.TYPE_IMAGE)) {
             // view the image
             Intent intent = new Intent(getActivity(), ViewImageActivity.class);
@@ -120,7 +120,7 @@ public class InboxFragment extends ListFragment {
         else if (messageType.equals(ParseConstants.TYPE_VIDEO)) {
             // view the video
             Intent intent = new Intent(Intent.ACTION_VIEW, fileUri);
-            
+
             intent.setDataAndType(fileUri, "video/*");
             startActivity(intent);
         } else if (messageType.equals(ParseConstants.TYPE_TEXT)) {
@@ -129,16 +129,16 @@ public class InboxFragment extends ListFragment {
             builder.setTitle("Message From: " + senderName + ".");
             builder.setMessage(displayMessage);
             builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int whichButton) {                  
+                public void onClick(DialogInterface dialog, int whichButton) {
                 }
             });
             AlertDialog dialog = builder.create();
             dialog.show();
         }
-        
+
         // Delete the message
         List<String> ids = message.getList(ParseConstants.KEY_RECIPIENT_IDS);
-        
+
         if (ids.size() == 1) {
             // last recipient - delete the whole thing
             message.deleteInBackground();
@@ -146,20 +146,20 @@ public class InboxFragment extends ListFragment {
         else {
             // remove the recipient from the list
             ids.remove(ParseUser.getCurrentUser().getObjectId());
-            
+
             ArrayList<String> idsToRemove = new ArrayList<String>();
             idsToRemove.add(ParseUser.getCurrentUser().getObjectId());
-            
+
             message.removeAll(ParseConstants.KEY_RECIPIENT_IDS, idsToRemove);
             message.saveInBackground();
         }
     }
-    
+
 //    protected SwipeRefreshLayout.OnRefreshListener mOnRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
 //        @Override
 //        public void onRefresh() {
 //            retrieveMessages();
 //        }
 //    };
-    
+
 }
