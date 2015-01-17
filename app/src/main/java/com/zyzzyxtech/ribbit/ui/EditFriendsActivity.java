@@ -25,10 +25,6 @@ import com.zyzzyxtech.ribbit.utils.ParseConstants;
 
 import java.util.List;
 
-//import android.support.v7.app.ActionBarActivity;
-//import android.support.v7.app.ActionBar;
-
-
 public class EditFriendsActivity extends Activity {
 
     protected ParseRelation<ParseUser> mFriendsRelation;

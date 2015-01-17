@@ -48,6 +48,7 @@ public class RecipientsActivity extends Activity {
     protected Uri mMediaUri;
     protected String mFileType;
     protected GridView mGridView;
+    protected String mMyMessage;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +67,8 @@ public class RecipientsActivity extends Activity {
         
         mMediaUri = getIntent().getData();
         mFileType = getIntent().getExtras().getString(ParseConstants.KEY_FILE_TYPE);
+        
+        mMyMessage = getIntent().getExtras().getString("themessage");
         
     }
     
@@ -168,22 +171,30 @@ public class RecipientsActivity extends Activity {
         message.put(ParseConstants.KEY_SENDER_NAME, ParseUser.getCurrentUser().getUsername());
         message.put(ParseConstants.KEY_RECIPIENT_IDS, getRecipientIds());
         message.put(ParseConstants.KEY_FILE_TYPE, mFileType);
-        
-        byte[] fileBytes = FileHelper.getByteArrayFromFile(this, mMediaUri);
-        
-        if (fileBytes == null) {
-            return null;
-        }
-        else {
-            if (mFileType.equals(ParseConstants.TYPE_IMAGE)) {
-                fileBytes = FileHelper.reduceImageForUpload(fileBytes);
-            }
-            
-            String fileName = FileHelper.getFileName(this, mMediaUri, mFileType);
-            ParseFile file = new ParseFile(fileName, fileBytes);
-            message.put(ParseConstants.KEY_FILE, file);
-            
+
+        // Text message
+        if (mFileType.equals(ParseConstants.TYPE_TEXT)) {
+            message.put("themessage", mMyMessage);
+            message.put(ParseConstants.KEY_FILE_TYPE, "message");
             return message;
+        } else {
+
+
+            byte[] fileBytes = FileHelper.getByteArrayFromFile(this, mMediaUri);
+
+            if (fileBytes == null) {
+                return null;
+            } else {
+                if (mFileType.equals(ParseConstants.TYPE_IMAGE)) {
+                    fileBytes = FileHelper.reduceImageForUpload(fileBytes);
+                }
+
+                String fileName = FileHelper.getFileName(this, mMediaUri, mFileType);
+                ParseFile file = new ParseFile(fileName, fileBytes);
+                message.put(ParseConstants.KEY_FILE, file);
+
+                return message;
+            }
         }
     }
     
@@ -196,6 +207,7 @@ public class RecipientsActivity extends Activity {
         }
         return recipientIds;
     }
+    
     
     protected void send(ParseObject message) {
         message.saveInBackground(new SaveCallback() {

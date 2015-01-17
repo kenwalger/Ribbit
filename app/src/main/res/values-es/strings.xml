@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ribbit</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="cancel_button_label">CANCELAR</string>
+    <string name="content_desc_background">Ribbit Rana imagen de fondo</string>
+    <string name="content_desc_button_divider">Botón Divisor</string>
+    <string name="content_desc_message_icon">Icono del mensaje</string>
+    <string name="email_hint">Correo electrónico</string>
+    <string name="empty_friends_label">Añadir amigos a comenzar.</string>
+    <string name="empty_inbox_label">No hay mensajes nuevos!</string>
+    <string name="empty_recipients_list_message">Elija algunos amigos primero!</string>
+    <string name="error_external_storage">Hubo un problema de acceso de almacenamiento externo de su dispositivo.</string>
+    <string name="error_file_size_too_large">El archivo seleccionado es demasiado grande! Seleccione un nuevo archivo.</string>
+    <string name="error_opening_file">Hubo un problema con el archivo seleccionado.</string>
+    <string name="error_selecting_file">Hubo un error con el archivo seleccionado. Por favor, seleccione un archivo diferente.</string>
+    <string name="error_selecting_file_title">Lo sentiomos.</string>
+    <string name="error_sending_message">Hubo un error al enviar su mensaje. Por favor, vuelva a intentarlo.</string>
+    <string name="error_title">Lo sentiomos.</string>
+    <string name="hello_world">Hola Mundo!</string>
+    <string name="general_error">Lo sentimos , hubo un error !</string>
+    <string name="login_button_label">REGISTRARSE</string>
+    <string name="login_error_message">Por favor, asegúrese de introducir un nombre de usuario y contraseña!</string>
+    <string name="login_error_title">¡Huy!</string>
+    <string name="menu_camera_label">Cámara</string>
+    <string name="menu_edit_friends_label">Agregar amigos</string>
+    <string name="menu_logout_label">Cerrar sesión</string>
+    <string name="menu_send_label">Enviar</string>
+    <string name="password_hint">Contraseña</string>
+    <string name="push_message">"Usted tiene un nuevo mensaje de Ribbit de %s !"</string>
+    <string name="sign_up_button_label">CONTRATAR</string>
+    <string name="sign_up_text">¿No tienes una cuenta? Contratar!</string>
+    <string name="signup_error_message">Por favor, asegúrese de introducir un nombre de usuario , contraseña y dirección de correo electrónico!</string>
+    <string name="signup_error_title">¡Huy!</string>
+    <string name="subtitle">Un Proyecto Treehouse</string>
+    <string name="success_message">Mensaje enviado!</string>
+    <string name="title_activity_edit_friends">Editar Amigos</string>
+    <string name="title_activity_login">Entrar Actividad</string>
+    <string name="title_activity_recipients">Elija Destinatarios</string>
+    <string name="title_activity_sign_up">Registrarse Actividad</string>
+    <string name="title_section1">Bandeja de entrada</string>
+    <string name="title_section2">Amigos</string>
+    <string name="username_hint">Nombre de usuario</string>
+    <string name="video_file_size_warning">El vídeo seleccionado debe ser inferior a 10 MB.</string>
+
+    <string-array name="camera_choices">
+        <item>Tomar Fotos</item>
+        <item>Tome Vídeo</item>
+        <item>Elegir Imagen</item>
+        <item>Seleccione Vídeo</item>
+    </string-array>
+</resources>

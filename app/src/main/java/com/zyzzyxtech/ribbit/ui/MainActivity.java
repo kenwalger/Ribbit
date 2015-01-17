@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.parse.ParseAnalytics;
@@ -40,6 +41,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     public static final int TAKE_VIDEO_REQUEST = 1;
     public static final int PICK_PHOTO_REQUEST = 2;
     public static final int PICK_VIDEO_REQUEST = 3;
+    public static final int PICK_SEND_MESSAGE = 4;
     
     public static final int MEDIA_TYPE_IMAGE = 4;
     public static final int MEDIA_TYPE_VIDEO = 5;
@@ -91,6 +93,29 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                         Toast.makeText(MainActivity.this, R.string.video_file_size_warning, Toast.LENGTH_LONG).show();
                         startActivityForResult(chooseVideoIntent, PICK_VIDEO_REQUEST);
                         break;
+//                    case 4: // Message
+//
+//                        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+//                        alert.setTitle(getString(R.string.send_message_label));
+//                        alert.setMessage(getString(R.string.type_message_below));
+//                        final EditText input = new EditText(this);
+//                        alert.setView(input);
+//                        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+//                            public void onClick(DialogInterface dialog, int whichButton) {
+//                                String value = input.getText().toString();
+//                                    Intent recipientsIntent = new Intent(MainActivity.this, RecipientsActivity.class);
+//                                    recipientsIntent.putExtra(ParseConstants.KEY_MESSAGE, value);
+//                                    recipientsIntent.putExtra(ParseConstants.KEY_FILE_TYPE, ParseConstants.TYPE_TEXT);
+//                                    startActivity(recipientsIntent);
+//                            }
+//                        });
+//                        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//                           public void onClick(DialogInterface dialog, int whichButton) {
+//                               // Canceled.
+//                           }
+//                        });
+//                        alert.show();
+//                        break;
                 }
         }
                 

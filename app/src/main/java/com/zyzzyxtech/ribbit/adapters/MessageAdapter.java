@@ -61,9 +61,10 @@ public class MessageAdapter extends ArrayAdapter<ParseObject> {
         
         if (message.getString(ParseConstants.KEY_FILE_TYPE).equals(ParseConstants.TYPE_IMAGE)) {
             holder.iconImageView.setImageResource(R.drawable.ic_picture);
-        }
-        else {
+        } else if (message.getString(ParseConstants.KEY_FILE_TYPE).equals(ParseConstants.TYPE_VIDEO)) {
             holder.iconImageView.setImageResource(R.drawable.ic_video);
+        } else {
+            holder.iconImageView.setImageResource(R.drawable.ic_action_chat);
         }
         holder.nameLabel.setText(message.getString(ParseConstants.KEY_SENDER_NAME));
         return convertView;
