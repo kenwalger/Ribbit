@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -94,6 +95,7 @@ public class RecipientsActivity extends Activity {
                     }
                     if (mGridView.getAdapter() == null) {
                         UserAdapter adapter = new UserAdapter(RecipientsActivity.this, mFriends);
+                        mGridView.setAdapter(adapter);
                     }
                 } else {
                     Log.e(TAG, e.getMessage());
@@ -124,7 +126,6 @@ public class RecipientsActivity extends Activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_recipients, menu);
         mSendMenuItem = menu.getItem(0);
-        
         return true;
     }
 
@@ -217,29 +218,29 @@ public class RecipientsActivity extends Activity {
         });
         
     }
-    
+
     protected OnItemClickListener mOnItemClickListener = new OnItemClickListener() {
         @Override
-        public void OnItemClick(AdapterView<?> parent, View view, int position, long id) {
+        public void onItemClick(AdapterView<?> parent, View view, int position,
+                                long id) {
             if (mGridView.getCheckedItemCount() > 0) {
                 mSendMenuItem.setVisible(true);
             }
             else {
                 mSendMenuItem.setVisible(false);
             }
-            
+
             ImageView checkImageView = (ImageView)view.findViewById(R.id.checkImageView);
-            
+
             if (mGridView.isItemChecked(position)) {
                 // add the recipient
                 checkImageView.setVisibility(View.VISIBLE);
-            } else {
+            }
+            else {
                 // remove the recipient
                 checkImageView.setVisibility(View.INVISIBLE);
             }
-
         }
-        
     };
     
     protected void sendPushNotifications() {
@@ -247,13 +248,10 @@ public class RecipientsActivity extends Activity {
         query.whereContainedIn(ParseConstants.KEY_USER_ID, getRecipientIds());
         
         // Send push notification
-        
         ParsePush push = new ParsePush();
         push.setQuery(query);
         push.setMessage(getString(R.string.push_message, 
                 ParseUser.getCurrentUser().getUsername()));
         push.sendInBackground();
-
     }
-    
 }
