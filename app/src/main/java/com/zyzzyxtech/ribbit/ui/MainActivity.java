@@ -1,7 +1,6 @@
 package com.zyzzyxtech.ribbit.ui;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
@@ -10,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.Menu;
@@ -19,9 +19,9 @@ import android.widget.Toast;
 
 import com.parse.ParseAnalytics;
 import com.parse.ParseUser;
-import com.zyzzyxtech.ribbit.utils.ParseConstants;
 import com.zyzzyxtech.ribbit.R;
 import com.zyzzyxtech.ribbit.adapters.SectionsPagerAdapter;
+import com.zyzzyxtech.ribbit.utils.ParseConstants;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -32,7 +32,7 @@ import java.util.Date;
 import java.util.Locale;
 
 
-public class MainActivity extends Activity implements ActionBar.TabListener {
+public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 
     public static final String TAG = MainActivity.class.getSimpleName();
     
@@ -154,7 +154,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
+     * {@link android.support.v4.app.FragmentPagerAdapter} derivative, which will keep every
      * loaded fragment in memory. If this becomes too memory intensive, it
      * may be best to switch to a
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
@@ -187,7 +187,8 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(this, getFragmentManager());
+        mSectionsPagerAdapter = new SectionsPagerAdapter(this, 
+                getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);

@@ -10,8 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.parse.ParseObject;
-import com.zyzzyxtech.ribbit.utils.ParseConstants;
 import com.zyzzyxtech.ribbit.R;
+import com.zyzzyxtech.ribbit.utils.ParseConstants;
 
 import java.util.Date;
 import java.util.List;

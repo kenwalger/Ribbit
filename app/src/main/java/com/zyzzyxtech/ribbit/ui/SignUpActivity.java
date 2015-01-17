@@ -15,6 +15,7 @@ import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 import com.zyzzyxtech.ribbit.R;
+import com.zyzzyxtech.ribbit.RibbitApplication;
 
 
 public class SignUpActivity extends Activity {
@@ -81,6 +82,8 @@ public class SignUpActivity extends Activity {
                             setProgressBarIndeterminateVisibility(false);
                             if (e == null) {
                                 // Success!
+                                RibbitApplication.updateParseInstallation(
+                                        ParseUser.getCurrentUser());
                                 Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);

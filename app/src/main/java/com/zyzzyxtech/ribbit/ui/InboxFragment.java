@@ -1,15 +1,13 @@
 package com.zyzzyxtech.ribbit.ui;
 
-import android.app.ListFragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-//import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -17,12 +15,14 @@ import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.zyzzyxtech.ribbit.R;
 import com.zyzzyxtech.ribbit.adapters.MessageAdapter;
 import com.zyzzyxtech.ribbit.utils.ParseConstants;
-import com.zyzzyxtech.ribbit.R;
 
 import java.util.ArrayList;
 import java.util.List;
+
+//import android.support.v4.widget.SwipeRefreshLayout;
 
 /**
  * Created by Ken on 12/27/2014.
